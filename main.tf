@@ -86,7 +86,7 @@ resource "azurerm_virtual_machine" "example" {
   location              = azurerm_resource_group.main.location
   resource_group_name   = azurerm_resource_group.main.name
   network_interface_ids = [azurerm_network_interface.linux.id]
-  vm_size               = "Standard_F4"
+  vm_size               = "Standard_F2"
 
   storage_image_reference {
     publisher = "Canonical"
@@ -117,6 +117,20 @@ resource "azurerm_virtual_machine" "example" {
     environment = "${var.omgeving}"
     }
 }
+
+module "web_app_container" {
+  source = "innovationnorway/web-app-container/azurerm"
+
+  name = "Hallo Daan Toes"
+
+  resource_group_name = azurerm_resource_group.main.name
+
+  container_type = "docker"
+
+  container_image = "innovationnorway/go-hello-world:latest"
+}
+
+
 
 /*
 resource "azurerm_managed_disk" "example" {
