@@ -121,7 +121,7 @@ resource "azurerm_virtual_machine" "example" {
 module "web_app_container" {
   source = "innovationnorway/web-app-container/azurerm"
 
-  name = "Hallo Daan Toes"
+  name = "HalloDaan"
 
   resource_group_name = azurerm_resource_group.main.name
 
