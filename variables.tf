@@ -1,6 +1,6 @@
 variable "prefix" {
   description = "Naamgeving voor de verschillende resources die aangemaakt worden"
-  default = "lxvmtest"
+  default = "lxstorage"
 }
 
 variable "location" {
@@ -10,7 +10,7 @@ variable "location" {
 
 variable "omgeving" {
   description = "Soort omgeving zoals test,dev of productie"
-  default = "linuxvm"
+  default = "linuxstorage"
 }
 
 variable "gebruikersnaam" {
