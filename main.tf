@@ -102,14 +102,6 @@ resource "azurerm_virtual_machine" "example" {
     managed_disk_type = "Standard_LRS"
   }
 
-  storage_data_disk {
-    name            = "${azurerm_managed_disk.test.name}"
-    managed_disk_id = "${azurerm_managed_disk.test.id}"
-    create_option   = "Attach"
-    lun             = 1
-    disk_size_gb    = "${azurerm_managed_disk.test.disk_size_gb}"
-    }
-
   os_profile {
     computer_name  = "Linux machine"
     admin_username = var.gebruikersnaam
