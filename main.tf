@@ -136,12 +136,6 @@ resource "azurerm_app_service" "test" {
     # ...
     linux_fx_version = "DOCKER|appsvcsample/python-helloworld:0.1.2"
   }
-
-  lifecycle {
-    ignore_changes = [
-      "site_config.0.linux_fx_version", # deployments are made outside of Terraform
-    ]
-  }
 }
 
 
