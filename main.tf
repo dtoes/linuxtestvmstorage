@@ -82,7 +82,7 @@ resource "azurerm_network_security_group" "webserver" {
 }
 
 resource "azurerm_virtual_machine" "example" {
-  name                  = "${var.prefix}-lx"
+  name                  = "${var.prefix}-lx2"
   location              = azurerm_resource_group.main.location
   resource_group_name   = azurerm_resource_group.main.name
   network_interface_ids = [azurerm_network_interface.linux.id]
@@ -91,12 +91,12 @@ resource "azurerm_virtual_machine" "example" {
   storage_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "16.04-LTS"
+    sku       = "18.04-LTS"
     version   = "latest"
   }
 
   storage_os_disk {
-    name              = "${var.prefix}-osdisk"
+    name              = "${var.prefix}-osdisk2"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
@@ -108,6 +108,9 @@ resource "azurerm_virtual_machine" "example" {
     admin_password = var.wachtwoord
   }
   
+  lifecycle {
+    create_before_destroy = true
+  }
 
   os_profile_linux_config {
     disable_password_authentication = false
