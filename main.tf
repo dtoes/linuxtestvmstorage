@@ -119,6 +119,7 @@ resource "azurerm_virtual_machine" "example" {
     }
 }
 
+/*
 resource "azurerm_managed_disk" "example" {
   name                 = "${var.prefix}-disk1"
   location             = azurerm_resource_group.main.location
@@ -134,3 +135,4 @@ resource "azurerm_virtual_machine_data_disk_attachment" "example" {
   lun                = "10"
   caching            = "ReadWrite"
 }
+*/
