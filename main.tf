@@ -86,7 +86,7 @@ resource "azurerm_virtual_machine" "example" {
   location              = azurerm_resource_group.main.location
   resource_group_name   = azurerm_resource_group.main.name
   network_interface_ids = [azurerm_network_interface.linux.id]
-  vm_size               = "Standard_F2"
+  vm_size               = "Standard_F4"
 
   storage_image_reference {
     publisher = "Canonical"
