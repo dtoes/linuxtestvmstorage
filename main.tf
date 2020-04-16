@@ -118,27 +118,6 @@ resource "azurerm_virtual_machine" "example" {
     }
 }
 
-module "web_app_container" {
-  source = "innovationnorway/web-app-container/azurerm"
-
-  name = "HalloDaan"
-
-  resource_group_name = azurerm_resource_group.main.name
-
-  container_type = "docker"
-
-  container_image = "innovationnorway/go-hello-world:latest"
-}
-
-resource "azurerm_app_service" "test" {
-  # ...
-  site_config = {
-    # ...
-    linux_fx_version = "DOCKER|appsvcsample/python-helloworld:0.1.2"
-  }
-}
-
-
 
 /*
 resource "azurerm_managed_disk" "example" {
